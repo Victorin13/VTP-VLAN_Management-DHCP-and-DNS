@@ -151,3 +151,16 @@ When connectivity fails, check the following:
 - Apply appropriate switch management access controls.
 
 This documentation describes the lab's architecture, configuration principles, and validation procedure.
+
+
+## Author
+
+**C. Victorin Vodinou**
+
+_Networking_ | _Systems Administration_ | _Network Security_
+
+[GitHub Profile](https://github.com/Victorin13)
+[LinkedIn Profile](https://www.linkedin.com/in/victorin-vodinou/)
+Gmail Prifile: victorinvodinou@gmail.com
+
+This project is part of my hands-on networking lab portfolio.

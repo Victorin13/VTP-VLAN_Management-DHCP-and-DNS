@@ -177,4 +177,12 @@ VTP and DTP should be configured deliberately in production networks.
 
 _Networking_ | _Systems Administration_ | _Network Security_
 
+[GitHub Profile](https://github.com/Victorin13)
+[LinkedIn Profile](https://www.linkedin.com/in/victorin-vodinou/)
+Gmail Prifile: victorinvodinou@gmail.com
+
 This project is part of my hands-on networking lab portfolio.
+
+## License
+
+This project is distributed under the MIT License. See [`LICENSE`](LICENSE) for details.
