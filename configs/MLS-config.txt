@@ -1,0 +1,58 @@
+ip routing
+
+vtp version 2
+vtp mode server
+vtp domain  CCNA
+
+vlan 10
+name IT
+vlan 20
+name SERVERS
+vlan 30
+name HR
+vlan 40
+name SALES
+
+ip dhcp excluded-address 192.168.10.100 192.168.10.254
+ip dhcp excluded-address 192.168.20.1 192.168.20.254
+ip dhcp excluded-address 192.168.30.100 192.168.30.254
+ip dhcp excluded-address 192.168.40.100 192.168.40.254
+
+ip dhcp pool IT
+network 192.168.10.0 255.255.255.0
+default-router 192.168.10.254
+dns-server 192.168.20.2
+
+ip dhcp pool HR
+network 192.168.30.0 255.255.255.0
+default-router 192.168.30.254
+dns-server 192.168.20.2
+
+ip dhcp pool SALES
+network 192.168.40.0 255.255.255.0
+default-router 192.168.40.254
+dns-server 192.168.20.2
+
+interface vlan 10
+    description ## GATEWAY FOR VLAN 10 ##
+    ip address 192.168.10.254 255.255.255.0
+
+interface vlan 20
+    description ## GATEWAY FOR VLAN 20 ##
+    ip address 192.168.20.254 255.255.255.0
+
+interface vlan 30
+    description ## GATEWAY FOR VLAN 30 ##
+    ip address 192.168.30.254 255.255.255.0
+
+interface vlan 40
+    description ## GATEWAY FOR VLAN 40 ##
+    ip address 192.168.40.254 255.255.255.0
+
+interface g0/2
+    description ## TO SW1 ##
+    switchport trunk encapsulation dot1q
+    switchport mode trunk
+    switchport nonegotiate
+    switchport trunk allowed vlan 10,20,30,40
+    switchport trunk native vlan 1001

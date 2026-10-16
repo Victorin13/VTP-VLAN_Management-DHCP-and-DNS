@@ -1,0 +1,170 @@
+MLS#show vlan brief
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/1, Fa0/2, Fa0/3, Fa0/4
+                                                Fa0/5, Fa0/6, Fa0/7, Fa0/8
+                                                Fa0/9, Fa0/10, Fa0/11, Fa0/12
+                                                Fa0/13, Fa0/14, Fa0/15, Fa0/16
+                                                Fa0/17, Fa0/18, Fa0/19, Fa0/20
+                                                Fa0/21, Fa0/22, Fa0/23, Fa0/24
+                                                Gig0/1
+10   IT                               active    
+20   SERVERS                          active    
+30   HR                               active    
+40   SALES                            active    
+1002 fddi-default                     active    
+1003 token-ring-default               active    
+1004 fddinet-default                  active    
+1005 trnet-default                    active   
+
+MLS#show interfaces trunk
+Port        Mode         Encapsulation  Status        Native vlan
+Gig0/2      on           802.1q         trunking      1001
+
+Port        Vlans allowed on trunk
+Gig0/2      10,20,30,40
+
+Port        Vlans allowed and active in management domain
+Gig0/2      10,20,30,40
+
+Port        Vlans in spanning tree forwarding state and not pruned
+Gig0/2      10,20,30,40
+
+MLS#show vtp status
+VTP Version capable             : 1 to 2
+VTP version running             : 2
+VTP Domain Name                 : CCNA
+VTP Pruning Mode                : Disabled
+VTP Traps Generation            : Disabled
+Device ID                       : 000C.CFC2.7500
+Configuration last modified by 0.0.0.0 at 3-2-93 01:29:41
+Local updater ID is 192.168.10.254 on interface Vl10 (lowest numbered VLAN interface found)
+
+Feature VLAN : 
+--------------
+VTP Operating Mode                : Server
+Maximum VLANs supported locally   : 1005
+Number of existing VLANs          : 9
+Configuration Revision            : 24
+MD5 digest                        : 0xC4 0xFC 0xDC 0xA6 0x85 0xCA 0xE3 0xA2 
+                                    0x21 0x81 0x5E 0x63 0x37 0x2B 0xFB 0xB6 
+
+MLS#show ip dhcp binding
+IP address       Client-ID/              Lease expiration        Type
+                 Hardware address
+192.168.10.1     00D0.BAD6.C90A           --                     Automatic
+192.168.10.2     0030.F2AE.7C2A           --                     Automatic
+192.168.10.3     0060.7044.DD63           --                     Automatic
+192.168.30.2     0002.1624.A774           --                     Automatic
+192.168.30.1     00E0.F7B3.4053           --                     Automatic
+192.168.30.3     0090.2B42.3225           --                     Automatic
+192.168.40.1     0090.2145.120D           --                     Automatic
+192.168.40.2     0060.3EA8.3326           --                     Automatic
+
+MLS#show ip dhcp pool
+
+Pool IT :
+ Utilization mark (high/low)    : 100 / 0
+ Subnet size (first/next)       : 0 / 0 
+ Total addresses                : 254
+ Leased addresses               : 3
+ Excluded addresses             : 4
+ Pending event                  : none
+
+ 1 subnet is currently in the pool
+ Current index        IP address range                    Leased/Excluded/Total
+ 192.168.10.1         192.168.10.1     - 192.168.10.254    3    / 4     / 254
+
+Pool HR :
+ Utilization mark (high/low)    : 100 / 0
+ Subnet size (first/next)       : 0 / 0 
+ Total addresses                : 254
+ Leased addresses               : 3
+ Excluded addresses             : 4
+ Pending event                  : none
+
+ 1 subnet is currently in the pool
+ Current index        IP address range                    Leased/Excluded/Total
+ 192.168.30.1         192.168.30.1     - 192.168.30.254    3    / 4     / 254
+
+Pool SALES :
+ Utilization mark (high/low)    : 100 / 0
+ Subnet size (first/next)       : 0 / 0 
+ Total addresses                : 254
+ Leased addresses               : 2
+ Excluded addresses             : 4
+ Pending event                  : none
+
+ 1 subnet is currently in the pool
+ Current index        IP address range                    Leased/Excluded/Total
+ 192.168.40.1         192.168.40.1     - 192.168.40.254    2    / 4     / 254
+
+MLS#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol 
+GigabitEthernet0/2     unassigned      YES NVRAM  up                    up 
+Vlan1                  unassigned      YES unset  administratively down down 
+Vlan10                 192.168.10.254  YES manual up                    up 
+Vlan20                 192.168.20.254  YES manual up                    up 
+Vlan30                 192.168.30.254  YES manual up                    up 
+Vlan40                 192.168.40.254  YES manual up                    up
+MLS#
+
+
+SW1#sh vtp stat
+VTP Version capable             : 1 to 2
+VTP version running             : 2
+VTP Domain Name                 : CCNA
+VTP Pruning Mode                : Disabled
+VTP Traps Generation            : Disabled
+Device ID                       : 0060.3E0C.1400
+Configuration last modified by 0.0.0.0 at 3-2-93 01:29:41
+
+Feature VLAN : 
+--------------
+VTP Operating Mode                : Client
+Maximum VLANs supported locally   : 255
+Number of existing VLANs          : 9
+Configuration Revision            : 24
+MD5 digest                        : 0xC4 0xFC 0xDC 0xA6 0x85 0xCA 0xE3 0xA2 
+                                    0x21 0x81 0x5E 0x63 0x37 0x2B 0xFB 0xB6 
+SW1#
+
+
+SW3#sh vl br
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/2, Fa0/3, Fa0/4, Fa0/5
+                                                Fa0/9, Fa0/10, Fa0/11, Fa0/12
+                                                Fa0/13, Fa0/14, Fa0/15, Fa0/16
+                                                Fa0/17, Fa0/18, Fa0/19, Fa0/20
+                                                Fa0/21, Fa0/22, Fa0/23, Fa0/24
+                                                Gig0/1
+10   IT                               active    Fa0/8
+20   SERVERS                          active    Fa0/1
+30   HR                               active    Fa0/6, Fa0/7
+40   SALES                            active    
+50   TEST                             active    
+1002 fddi-default                     active    
+1003 token-ring-default               active    
+1004 fddinet-default                  active    
+1005 trnet-default                    active    
+SW3#sh vtp stat
+VTP Version capable             : 1 to 2
+VTP version running             : 2
+VTP Domain Name                 : CCNA
+VTP Pruning Mode                : Disabled
+VTP Traps Generation            : Disabled
+Device ID                       : 0000.0C4C.5E00
+Configuration last modified by 0.0.0.0 at 3-2-93 00:25:09
+
+Feature VLAN : 
+--------------
+VTP Operating Mode                : Transparent
+Maximum VLANs supported locally   : 255
+Number of existing VLANs          : 10
+Configuration Revision            : 0
+MD5 digest                        : 0x1C 0xE4 0x2F 0x17 0xAC 0x78 0x6D 0xF3 
+                                    0xE0 0x0F 0xAD 0x08 0x0D 0x4C 0xD7 0x5F 
+SW3#

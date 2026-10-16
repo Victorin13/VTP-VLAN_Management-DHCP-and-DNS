@@ -1,0 +1,25 @@
+vtp mode [client |transparent]
+vtp version 2 
+vtp domain CCNA 
+
+interface g0/2
+    description ## TO SW2 ##
+    switchport mode trunk
+    switchport nonegotiate
+    switchport trunk allowed vlan 10,20,30
+    switchport trunk native vlan 1001
+
+interface f0/1
+    description ## IN VLAN 20 ##
+    switchport mode access
+    switchport access vlan 20
+
+interface range f0/6-7
+    description ## IN VLAN 30 ##
+    switchport mode access
+    switchport access vlan 30 
+
+interface f0/8
+    description ## IN VLAN 10 ##
+    switchport mode access
+    switchport access vlan 10
